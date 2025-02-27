@@ -3,10 +3,12 @@ import requests as r
 from datetime import datetime
 import smtplib
 
-LONGITUDE = 100.389374
-LATITUDE = 6.135433
-EMAIL = "faisalkhrisan@gmail.com"
-PASSWORD = "glogctigebddotyq"
+# Note that all api key used in this code are general for everyone, so to do not worry if you expose your api 
+# to locate your longitude and latitude : https://www.latlong.net/
+LONGITUDE = 0
+LATITUDE = 0
+EMAIL = "example@gmail.com"
+PASSWORD = "Your password"
 
 response = r.get (url="http://api.open-notify.org/iss-now.json")
 response.raise_for_status()
@@ -27,8 +29,9 @@ parameter = {
     "lng": LONGITUDE,
     "lat": LATITUDE,
     "formatted": 0,
-    "tzid": "Asia/Kuala_Lumpur"
+    "tzid": "your time zone"
 }
+
 
 reply = r.get(url="https://api.sunrise-sunset.org/json", params=parameter)
 reply.raise_for_status()
